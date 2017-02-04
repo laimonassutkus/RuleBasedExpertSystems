@@ -22,3 +22,13 @@
 	(modify ?fact_id1 (mice_eaten (+ ?mice_eaten 1)))
 	(modify ?fact_id2 (amount (- ?amount 1)))
 )
+
+(defrule r3 "If a cat has eaten 5 mice, it goes to sleep"
+	(declare (salience 100))
+	?fact_id3 <- (cat (mice_eaten ?mice_eaten) (state ?state))
+	(test (= ?mice_eaten 5))
+	=>
+	(modify ?fact_id3 (state "sleeping"))
+	(printout t "Goodnight :)" crlf)
+	(halt)
+)
