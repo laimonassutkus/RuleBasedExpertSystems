@@ -13,6 +13,7 @@
 
 ; define rules
 (defrule r1 "If a person is under 12, he wants to go to a circus."
+	(declare (salience 1))
 	?fact_id0 <- (person (age ?age) (name ?name))
 	(test (< ?age 12))
 	=>
