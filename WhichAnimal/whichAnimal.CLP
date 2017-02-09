@@ -235,6 +235,7 @@
 
 (defrule is-lion
 	(hair y)
+	(pet n)
 	=>
 	(assert (answer lion))
 )
