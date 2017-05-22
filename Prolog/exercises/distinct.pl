@@ -6,11 +6,11 @@ print_list([Head|Tail]) :-
 
 distinct(List) :- distinct(List, []).
 
+distinct([], DistinctList) :-
+	print_list(DistinctList).
+
 distinct([Head|Tail], DistinctList) :-
-	(
 	\+ member(Head, DistinctList) -> 
 	append(DistinctList, [Head], X),
-	print_list(X),
 	distinct(Tail, X) ;
-	distinct(Tail, DistinctList)
-	).
+	distinct(Tail, DistinctList).
